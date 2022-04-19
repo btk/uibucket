@@ -1,7 +1,8 @@
-import { connectToDatabase } from "../../util/mongodb";
+import clientPromise from "../../lib/mongodb";
 
 export default async (req, res) => {
-  const { db } = await connectToDatabase();
+ const client = await clientPromise
+ const db = client.db("UIBucket")
   const projects = await db
     .collection("Project")
     .find({})
