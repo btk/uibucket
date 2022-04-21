@@ -21,6 +21,10 @@ export default function Home({ }) {
         let projectsResponse = await get("/api/projects", {email: auth.userObject.email});
         setProjects(projectsResponse);
       }
+    }else{
+      if(typeof window != "undefined"){
+        window.location = "/";        
+      }
     }
 
   }, [])
