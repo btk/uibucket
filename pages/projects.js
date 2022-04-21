@@ -23,7 +23,7 @@ export default function Home({ }) {
       }
     }else{
       if(typeof window != "undefined"){
-        window.location = "/";        
+        window.location = "/";
       }
     }
 
@@ -57,7 +57,7 @@ export default function Home({ }) {
           Hello {userObject.name}! Here is a list of your projects;
         </p>
 
-        <p className="description">
+        <p className="description" style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
           {projects.length != 0 && projects.map((project, i) => {
               return (
                 <Project key={i} project={project}/>
