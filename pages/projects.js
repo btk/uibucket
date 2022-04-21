@@ -25,12 +25,23 @@ export default function Home({ }) {
 
   }, [])
 
+  let logMeOut = () => {
+    window.localStorage.setItem("auth", "");
+    setTimeout(() => {
+      window.location = "/";
+    }, 100);
+  }
+
   return (
     <div className="container">
       <Head>
         <title>Projects - UIBucket</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <div onClick={() => logMeOut()} style={{cursor: "pointer", position: "fixed", top: 20, left: 20, background: "#000", color: "#fff", padding: 10, borderRadius: 5}}>
+        Log out
+      </div>
 
       <main>
 

@@ -20,7 +20,7 @@ export default function Home({ }) {
 
       setTimeout(() => {
         Router.push("/projects");
-      }, 3000)
+      }, 2000)
     }
   }
 
