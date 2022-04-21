@@ -5,16 +5,17 @@ import Router from 'next/router'
 
 export default function Home({ }) {
 
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [response, setResponse] = useState({});
 
-  let logMeIn = async (email, password) => {
-    let res = await post("/api/auth", {email, password})
+  let signMeUp = async (name, email, password) => {
+    let res = await post("/api/register", {name, email, password})
 
     setResponse(res);
 
-    if(res.authenticated){
+    if(res.status){
       // create cookie for user
       window.localStorage.setItem("auth", JSON.stringify(res));
 
@@ -27,22 +28,26 @@ export default function Home({ }) {
   return (
     <div className="container">
       <Head>
-        <title>Login - UIBucket</title>
+        <title>Sign Up - UIBucket</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
 
         <h1 className="title">
-          Login
+          Sign Up
         </h1>
 
         <p className="description">
-          Use the form to login to UIBucket
+          Use the form to register to UIBucket
         </p>
 
         {typeof response.authenticated == "undefined" &&
           <div style={{display: "flex", flexDirection: "column", alignItems: "flex-end"}}>
+            <div style={{marginBottom: 5}}>Name:
+              <input style={{padding: 5}} type="text" placeholder="Your Name"
+                     value={name} onChange={(e) => setName(e.target.value)}/>
+            </div>
             <div style={{marginBottom: 5}}>Email:
               <input style={{padding: 5}} type="text" placeholder="E-mail Address"
                      value={email} onChange={(e) => setEmail(e.target.value)}/>
@@ -51,14 +56,14 @@ export default function Home({ }) {
               <input style={{padding: 5}} type="password" placeholder="Password"
                      value={password} onChange={(e) => setPassword(e.target.value)}/>
             </div>
-            <div style={{marginBottom: 5}}><input style={{padding: 5}} type="submit" value="Login" onClick={() => logMeIn(email, password)}/></div>
+            <div style={{marginBottom: 5}}><input style={{padding: 5}} type="submit" value="Sign Up" onClick={() => signMeUp(name, email, password)}/></div>
           </div>
         }
 
-        {response.authenticated &&
+        {response.status &&
           <span>
             <p className="description" style={{color: "green"}}>
-              Authentication Successful, Welcome {response.userObject.name}!
+              Successful Signed Up, Welcome {response.userObject.name}!
             </p>
 
             <p className="description" style={{}}>
@@ -68,10 +73,10 @@ export default function Home({ }) {
           </span>
         }
 
-        {typeof response.authenticated != "undefined" && !response.authenticated &&
+        {typeof response.status != "undefined" && !response.status &&
           <span>
             <p className="description" style={{color: "red"}}>
-              Authentication Unsuccessful, Please check your email and password!
+              There was an issue with register, please check your name, email and password!
             </p>
             <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}><input style={{padding: 5}} type="submit" value="Retry" onClick={() => Router.reload(window.location.pathname)}/></div>
 
