@@ -14,8 +14,9 @@ export default function Home({ }) {
     let res = await post("/api/register", {name, email, password})
 
     setResponse(res);
+    console.log(res);
 
-    if(res.status){
+    if(res.authenticated){
       // create cookie for user
       window.localStorage.setItem("auth", JSON.stringify(res));
 
@@ -39,7 +40,7 @@ export default function Home({ }) {
         </h1>
 
         <p className="description">
-          Use the form to register to UIBucket
+          Use the form to register to <b>UIBucket</b>
         </p>
 
         {typeof response.authenticated == "undefined" &&
@@ -60,7 +61,7 @@ export default function Home({ }) {
           </div>
         }
 
-        {response.status &&
+        {response.authenticated &&
           <span>
             <p className="description" style={{color: "green"}}>
               Successful Signed Up, Welcome {response.userObject.name}!
@@ -73,7 +74,7 @@ export default function Home({ }) {
           </span>
         }
 
-        {typeof response.status != "undefined" && !response.status &&
+        {typeof response.authenticated != "undefined" && !response.authenticated &&
           <span>
             <p className="description" style={{color: "red"}}>
               There was an issue with register, please check your name, email and password!
