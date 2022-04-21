@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
-import get from './js/get'
+import get from '../js/get'
 import Router from 'next/router'
 
-import Project from './components/Project';
+import Project from '../components/Project';
 
 
 export default function Home({ }) {

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useState } from 'react'
-import post from './js/post'
+import post from '../js/post'
 import Router from 'next/router'
 
 export default function Home({ }) {
