@@ -50,14 +50,17 @@ export default function Home({ }) {
       <main>
 
         <h1 className="title">
-          Projects
+          My Projects
         </h1>
 
         <p className="description">
-          Hello {userObject.name}! Here is a list of your projects;
+          Hello <b>{userObject.name}</b>! Here is a list of your projects;
         </p>
 
         <p className="description" style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
+          {projects.length == 0 &&
+            <div style={{display: "flex", width: 250, height: 160, justifyContent: "center", alignItems: "center"}}><span>Projects loading...</span></div>
+          }
           {projects.length != 0 && projects.map((project, i) => {
               return (
                 <Project key={i} project={project}/>
