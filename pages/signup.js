@@ -35,31 +35,35 @@ export default function Home({ }) {
 
       <main>
 
-        <h1 className="title">
-          Sign Up
-        </h1>
-
-        <p className="description">
-          Use the form to register to <b>UIBucket</b>
-        </p>
+      
 
         {typeof response.authenticated == "undefined" &&
-          <div style={{display: "flex", flexDirection: "column", alignItems: "flex-end"}}>
-            <div style={{marginBottom: 5}}>Name:
+
+          <div className="card">
+
+          <p className="title">
+            Sign Up
+          </p>
+          <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+            <div style={{marginBottom: 5}}>
               <input style={{padding: 5}} type="text" placeholder="Your Name"
                      value={name} onChange={(e) => setName(e.target.value)}/>
             </div>
-            <div style={{marginBottom: 5}}>Email:
+            <div style={{marginBottom: 5}}>
               <input style={{padding: 5}} type="text" placeholder="E-mail Address"
                      value={email} onChange={(e) => setEmail(e.target.value)}/>
             </div>
-            <div style={{marginBottom: 5}}>Password:
+            <div style={{marginBottom: 5}}>
               <input style={{padding: 5}} type="password" placeholder="Password"
                      value={password} onChange={(e) => setPassword(e.target.value)}/>
             </div>
-            <div style={{marginBottom: 5}}><input style={{padding: 5}} type="submit" value="Sign Up" onClick={() => signMeUp(name, email, password)}/></div>
+            <div style={{marginBottom: 5}} className="btnholder"><input style={{padding: 5}} className="loginbtn" type="submit" value="Sign Up" onClick={() => signMeUp(name, email, password)}/></div>
+          </div>
+
           </div>
         }
+       
+
 
         {response.authenticated &&
           <span>

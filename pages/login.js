@@ -33,27 +33,37 @@ export default function Home({ }) {
 
       <main>
 
-        <h1 className="title">
-          Login
-        </h1>
+        
 
-        <p className="description">
-          Use the form to login to UIBucket
-        </p>
+          {/* <p className="description">
+            Use the form to login to UIBucket
+          </p> */}
 
-        {typeof response.authenticated == "undefined" &&
-          <div style={{display: "flex", flexDirection: "column", alignItems: "flex-end"}}>
-            <div style={{marginBottom: 5}}>Email:
-              <input style={{padding: 5}} type="text" placeholder="E-mail Address"
-                     value={email} onChange={(e) => setEmail(e.target.value)}/>
+          {typeof response.authenticated == "undefined" &&
+
+            <div className="card">
+
+            <p className="title">
+              UIBucket
+            </p>
+
+
+            <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+              <div style={{marginBottom: 5}}>
+                <input style={{padding: 5}} type="text" placeholder="E-mail Address"
+                      value={email} onChange={(e) => setEmail(e.target.value)}/>
+              </div>
+              <div style={{marginBottom: 5}}>
+                <input style={{padding: 5}} type="password" placeholder="Password"
+                      value={password} onChange={(e) => setPassword(e.target.value)}/>
+              </div>
+              <div className='btnholder' style={{marginBottom: 5}}><input style={{padding: 5}} type="submit" value="Login" className='loginbtn' onClick={() => logMeIn(email, password)}/></div>
             </div>
-            <div style={{marginBottom: 5}}>Password:
-              <input style={{padding: 5}} type="password" placeholder="Password"
-                     value={password} onChange={(e) => setPassword(e.target.value)}/>
-            </div>
-            <div style={{marginBottom: 5}}><input style={{padding: 5}} type="submit" value="Login" onClick={() => logMeIn(email, password)}/></div>
-          </div>
-        }
+
+             </div>
+          }
+
+       
 
         {response.authenticated &&
           <span>
