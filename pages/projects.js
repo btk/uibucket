@@ -78,7 +78,7 @@ export default function Home({ }) {
 		        <div className="content">
               <input className="Pinput" type="text" placeholder="Enter Project Name" name="ProjectName" required></input>
 
-              <button type="submit" className="btn" onClick={createProject}>Create</button>
+              <button type="submit" className="btn">Create</button>
               <a className="close" href="#">&times;</a>
 		        </div>
           </div>
