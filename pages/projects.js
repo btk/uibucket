@@ -68,6 +68,22 @@ export default function Home({ }) {
             })
           }
         </p>
+
+        <a href="#popup1" className="float">
+          <i className="fa fa-plus my-float"></i>
+        </a>
+
+	        <div className="popup" id="popup1">
+		        <h3>Create Project</h3>
+		        <div className="content">
+              <input className="Pinput" type="text" placeholder="Enter Project Name" name="ProjectName" required></input>
+
+              <button type="submit" className="btn" onClick={createProject}>Create</button>
+              <a className="close" href="#">&times;</a>
+		        </div>
+          </div>
+
+
       </main>
 
 
