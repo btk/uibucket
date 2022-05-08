@@ -62,6 +62,7 @@ export default function Home({ }) {
             <div style={{display: "flex", width: 250, height: 160, justifyContent: "center", alignItems: "center"}}><span>Projects loading...</span></div>
           }
           {projects.length != 0 && projects.map((project, i) => {
+            console.log(project)
               return (
                 <Project key={i} project={project}/>
               )
