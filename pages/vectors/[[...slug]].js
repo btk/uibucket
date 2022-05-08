@@ -33,7 +33,7 @@ export default function Home({id}) {
 
       <Sidebar projectId={id}/>
 
-      <div style={{paddingLeft: 140, paddingTop: 45}}>
+      <div style={{paddingLeft: 140, paddingTop: 25}}>
 
         <h1 style={{fontSize: 35}}>
           {project.name}
