@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import get from '../js/get'
 import Router from 'next/router'
+import Link from 'next/link'
 
 import Project from '../components/Project';
 
@@ -11,22 +12,26 @@ export default function Home({ }) {
   let [userObject, setUserObject] = useState({});
   let [projects, setProjects] = useState([]);
 
-  useEffect(async () => {
-    let authString = window.localStorage.getItem("auth");
-    if(authString){
-      let auth = JSON.parse(authString);
-      setUserObject(auth.userObject);
+  useEffect(() => {
+    let authCheck = async () => {
+      let authString = window.localStorage.getItem("auth");
+      if(authString){
+        let auth = JSON.parse(authString);
+        setUserObject(auth.userObject);
 
-      if(auth.userObject.email){
-        let projectsResponse = await get("/api/projects", {email: auth.userObject.email});
-        setProjects(projectsResponse);
+        if(auth.userObject.email){
+          let projectsResponse = await get("/api/projects", {email: auth.userObject.email});
+          setProjects(projectsResponse);
+        }
+      }else{
+        if(typeof window != "undefined"){
+          window.location = "/";
+        }
       }
-    }else{
-      if(typeof window != "undefined"){
-        window.location = "/";
-      }
+
     }
 
+    authCheck();
   }, [])
 
   let logMeOut = () => {

@@ -16,6 +16,7 @@ export default function Home({id}) {
       let getProjectInfo = async () => {
         let projectResponse = await get("/api/project", {id: id});
         setProject(projectResponse);
+        console.log("asdasd",projectResponse);
       }
 
       getProjectInfo();
