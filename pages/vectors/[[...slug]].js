@@ -11,6 +11,7 @@ import Vector from '../../components/Vector';
 export default function Home({id}) {
 
   let [project, setProject] = useState({});
+  let [term, setTerm] = useState("");
 
   useEffect(() => {
 
@@ -23,6 +24,15 @@ export default function Home({id}) {
 
   }, [])
 
+  let filterSearch = (searchableArray) => {
+    if(term){
+      return searchableArray.filter(arr => {
+        return arr.title.toLowerCase().includes(term.toLowerCase());
+      })
+    }else{
+      return searchableArray;
+    }
+  }
 
   return (
     <div className="container_Project">
@@ -44,10 +54,12 @@ export default function Home({id}) {
         <h2 style={{fontSize: 20}}>
           Vectors
         </h2>
-        <input placeholder="Search" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", border: "1px solid #eee", padding: 10, borderRadius: 10, margin: 5, fontSize: 21, width: "100%"}}/>
+        <input placeholder="Search" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", border: "1px solid #eee", padding: 10, borderRadius: 10, margin: 5, fontSize: 21, width: "100%"}}
+          onChange={ (event) => setTerm(event.target.value) }
+          />
 
         <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-          {project.vectors && project.vectors.map((vector, i) => {
+          {project.vectors && filterSearch(project.vectors).map((vector, i) => {
             return <Vector key={i} vector={vector}/>
           })}
         </div>

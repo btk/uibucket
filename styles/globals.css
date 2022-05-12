@@ -137,6 +137,37 @@ code {
   height: 1em;
 }
 
+.vector {
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 1%);
+  transition: 300ms all;
+  transform: scale(1);
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  position: relative;
+  cursor: pointer;
+}
+
+.vector:hover {
+  box-shadow: 0 2px 10px 0 rgb(0 0 0 / 30%);
+  transform: scale(1.2);
+  z-index: 10;
+
+}
+
+.accepted {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: green;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;
