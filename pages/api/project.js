@@ -8,7 +8,7 @@ export default async (req, res) => {
  const db = client.db("UIBucket")
  const projects = await db
    .collection("Project")
-   .find({"_id" : ObjectID("625e9469f40f0c88c1dca129")})
+   .find({"_id" : ObjectID(id)})
    .toArray();
 
   res.json(projects[0]);
