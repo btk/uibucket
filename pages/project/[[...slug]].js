@@ -44,7 +44,7 @@ export default function Home({id}) {
           Project Details
         </h2>
         <p style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
-          {JSON.stringify(project)}
+          Project has {project.vectors ? project.vectors.length : 0} Vectors
         </p>
 
       </div>
