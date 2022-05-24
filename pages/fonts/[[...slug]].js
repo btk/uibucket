@@ -12,6 +12,7 @@ export default function Home({id}) {
   let [project, setProject] = useState({});
 
   useEffect(() => {
+  //   const fonts = await get("https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyA1whkxzFwdyzUUtFjkcxgdtmU_9TmxbGA");
 
       let getProjectInfo = async () => {
         let projectResponse = await get("/api/project", {id: id});
@@ -30,6 +31,22 @@ export default function Home({id}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+
+      <a href="#popup3">
+        <div className={"add"} style={{backgroundColor: "#e6fedc"}}>+ Add New Font</div>
+      </a>
+
+      <div className="popup" id="popup3">
+        <div className="popupHolder">
+          <h3>Add Fonts</h3>
+          <div className="content">
+            <input className="Pinput" type="text" placeholder="Search fonts to add" name="fontTerm" required></input>
+
+            <button type="submit" className="btn">Add Vectors</button>
+            <a className="close" href="#">&times;</a>
+          </div>
+        </div>
+      </div>
 
       <Sidebar projectId={id}/>
 

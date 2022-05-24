@@ -32,6 +32,23 @@ export default function Home({id}) {
       </Head>
 
 
+      <a href="#popup3">
+        <div className={"add"} style={{backgroundColor: "#feeadc"}}>+ Add New Member</div>
+      </a>
+
+      <div className="popup" id="popup3">
+        <div className="popupHolder">
+          <h3>Add Member</h3>
+          <div className="content">
+            <input className="Pinput" type="text" placeholder="Member e-mail address" name="fontTerm" required></input>
+
+            <button type="submit" className="btn">Add Member</button>
+            <a className="close" href="#">&times;</a>
+          </div>
+        </div>
+      </div>
+
+
       <Sidebar projectId={id}/>
 
       <div style={{paddingLeft: 140, paddingTop: 25}}>

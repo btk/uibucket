@@ -44,6 +44,23 @@ export default function Home({id}) {
 
       <Sidebar projectId={id}/>
 
+      <a href="#popup2">
+        <div className={"add"} style={{backgroundColor: "#fae1ff"}}>+ Add New Vector</div>
+      </a>
+
+      <div className="popup" id="popup2">
+        <div className="popupHolder">
+          <h3>Add Vectors</h3>
+          <div className="content">
+            <input className="Pinput" type="text" placeholder="Search vectors to add" name="vectorTerm" required></input>
+
+            <button type="submit" className="btn">Add Vectors</button>
+            <a className="close" href="#">&times;</a>
+          </div>
+        </div>
+      </div>
+
+
       <div style={{paddingLeft: 140, paddingTop: 25}}>
 
         <h1 style={{fontSize: 35}}>
@@ -54,7 +71,7 @@ export default function Home({id}) {
         <h2 style={{fontSize: 20}}>
           Vectors
         </h2>
-        <input placeholder="Search" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", border: "1px solid #eee", padding: 10, borderRadius: 10, margin: 5, fontSize: 21, width: "100%"}}
+        <input placeholder="Search" style={{display: "flex", flexDirection: "row", flexWrap: "wrap", border: "1px solid #eee", padding: 10, borderRadius: 10, margin: 5, fontSize: 21, width: "90%"}}
           onChange={ (event) => setTerm(event.target.value) }
           />
 

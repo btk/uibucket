@@ -54,6 +54,7 @@ export default function Home({ }) {
 
       <main>
 
+
         <h1 className="title">
           My Projects
         </h1>
@@ -75,19 +76,21 @@ export default function Home({ }) {
           }
         </p>
 
-        <a href="#popup1" className="float">
-          <i className="fa fa-plus my-float"></i>
+        <a href="#popup1">
+          <div className={"add"} style={{backgroundColor: "#dcf2fe"}}>+ Create Project</div>
         </a>
 
-	        <div className="popup" id="popup1">
-		        <h3>Create Project</h3>
-		        <div className="content">
+        <div className="popup" id="popup1">
+          <div className="popupHolder">
+  	        <h3>Create Project</h3>
+  	        <div className="content">
               <input className="Pinput" type="text" placeholder="Enter Project Name" name="ProjectName" required></input>
 
               <button type="submit" className="btn">Create</button>
               <a className="close" href="#">&times;</a>
-		        </div>
+  	        </div>
           </div>
+        </div>
 
 
       </main>

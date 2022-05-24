@@ -54,9 +54,9 @@
 
 .container{
     background-image: url("pexels-dominika-roseclay-1036808.jpg");
-    background-size:     cover;                
+    background-size:     cover;
     background-repeat:   no-repeat;
-    background-position: center center; 
+    background-position: center center;
 }
 
 /*Project Page*/
@@ -81,34 +81,6 @@
 	margin-top:22px;
 }
 
-.popup:target{
-    visibility: visible;
-    opacity: 1;
-}
-  
-.popup {
-    margin: 70px auto;
-    padding: 20px;
-    background: rgb(156, 153, 153);
-    border-radius: 5px;
-    width: 30%;
-    transition: all 0.5s ease-in-out;
-    visibility: hidden;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    width: fit-content;
-    height: fit-content;
-}
-
-.popup .content {
-    max-height: 30%;
-    overflow: auto;
-}
-
 @media screen and (max-width: 700px){
     .box{
       width: 70%;
@@ -128,7 +100,7 @@
 
 .Pinput:focus {
     background-color: #ddd;
-    outline: none;    
+    outline: none;
 }
 
 .btn {
@@ -144,18 +116,4 @@
 
 .btn:hover {
     opacity: 1;
-}
-
-.popup .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    transition: all 200ms;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-}
-.popup .close:hover {
-    color: #565756;
 }
