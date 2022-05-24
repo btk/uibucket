@@ -19,7 +19,9 @@ export default function Home({id}) {
     if(name && email){
       let adding = await post(`/api/memberAdd`, {id, name, email});
       Router.push(`/members/${id}`);
-      Router.reload();
+      setTimeout(() => {
+        Router.reload();
+      }, 100);
     }else {
       alert("Name or email address can't be empty!");
     }

@@ -177,7 +177,7 @@ code {
   justify-content: center;
   align-items: center;
   display: flex;
-  position: absolute;
+  position: fixed;
   z-index: 999;
   bottom: 30px;
   right: 30px;
@@ -224,14 +224,16 @@ code {
 }
 
 .popupHolder {
-  width: 600px;
+  width: 660px;
   background: #fff;
   border-radius: 5px;
   padding: 20px;
+  max-height: calc(100% - 40px);
+  overflow-x: hidden;
+  overflow-y: scroll;
   margin: auto;
   position: relative;
 }
-
 
 
 @media (max-width: 600px) {

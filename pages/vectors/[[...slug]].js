@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import get from '../../js/get'
+import post from '../../js/post'
 import Router from 'next/router'
 
 import Project from '../../components/Project';
@@ -12,6 +13,31 @@ export default function Home({id}) {
 
   let [project, setProject] = useState({});
   let [term, setTerm] = useState("");
+
+  let [addTerm, setAddTerm] = useState("");
+  let [addResults, setAddResults] = useState([]);
+
+  let addVector = async (vector) => {
+    let adding = await post(`/api/vectorAdd`, {id, vector});
+  }
+
+  let add = async () => {
+    Router.push(`/vectors/${id}`);
+    setTimeout(() => {
+      Router.reload();
+    }, 100);
+  }
+
+  useEffect(() => {
+    fetchVectors();
+  }, [addTerm])
+
+  let fetchVectors = async () => {
+    if(addTerm.length >= 2){
+      let icons = await get(`/api/searchVectors`, { search: addTerm, limit: 8})
+      setAddResults(icons);
+    }
+  }
 
   useEffect(() => {
 
@@ -52,9 +78,14 @@ export default function Home({id}) {
         <div className="popupHolder">
           <h3>Add Vectors</h3>
           <div className="content">
-            <input className="Pinput" type="text" placeholder="Search vectors to add" name="vectorTerm" required></input>
-
-            <button type="submit" className="btn">Add Vectors</button>
+            <input className="Pinput" type="text" placeholder="Search vectors to add" onChange={(e) => setAddTerm(e.target.value)} required></input>
+            <p>Results for {addTerm}</p>
+            <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+              {addResults.map((icon, i) => {
+                return <Vector key={i} vector={icon} add={() => addVector(icon)}/>
+              })}
+            </div>
+            <button type="submit" className="btn" onClick={() => add()}>Done!</button>
             <a className="close" href="#">&times;</a>
           </div>
         </div>
