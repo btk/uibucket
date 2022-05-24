@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import get from '../js/get'
+import post from '../js/post'
 import Router from 'next/router'
 import Link from 'next/link'
 
@@ -11,6 +12,9 @@ export default function Home({ }) {
 
   let [userObject, setUserObject] = useState({});
   let [projects, setProjects] = useState([]);
+
+  let [projectName, setProjectName] = useState("");
+  let [projectDescription, setProjectDescription] = useState("");
 
   useEffect(() => {
     let authCheck = async () => {
@@ -41,12 +45,39 @@ export default function Home({ }) {
     }, 100);
   }
 
+  let createProject = async() => {
+    let creating = await post(`/api/projectAdd`, {name: projectName, description: projectDescription, teamLeader: userObject});
+
+    Router.push(`/projects`);
+    setTimeout(() => {
+      Router.reload();
+    }, 100);
+  }
+
   return (
     <div className="container_Project">
       <Head>
         <title>Projects - UIBucket</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <a href="#popup1">
+        <div className={"add"} style={{backgroundColor: "#dcf2fe"}}>+ Create Project</div>
+      </a>
+
+      <div className="popup" id="popup1">
+        <div className="popupHolder">
+          <h3>Create Project</h3>
+          <div className="content">
+            <input className="Pinput" type="text" placeholder="Enter Project Name" onChange={(e) => setProjectName(e.target.value)} required></input>
+            <textarea className="Pinput" type="text" placeholder="Enter Project Description" onChange={(e) => setProjectDescription(e.target.value)} required></textarea>
+
+            <button type="submit" className="btn" onClick={() => createProject()}>Create</button>
+            <a className="close" href="#">&times;</a>
+          </div>
+        </div>
+      </div>
+      
 
       <div onClick={() => logMeOut()} style={{cursor: "pointer", position: "fixed", top: 20, left: 20, background: "#000", color: "#fff", padding: 10, borderRadius: 5}}>
         Log out
@@ -74,22 +105,6 @@ export default function Home({ }) {
             })
           }
         </p>
-
-        <a href="#popup1">
-          <div className={"add"} style={{backgroundColor: "#dcf2fe"}}>+ Create Project</div>
-        </a>
-
-        <div className="popup" id="popup1">
-          <div className="popupHolder">
-  	        <h3>Create Project</h3>
-  	        <div className="content">
-              <input className="Pinput" type="text" placeholder="Enter Project Name" name="ProjectName" required></input>
-
-              <button type="submit" className="btn">Create</button>
-              <a className="close" href="#">&times;</a>
-  	        </div>
-          </div>
-        </div>
 
 
       </main>

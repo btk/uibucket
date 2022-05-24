@@ -64,6 +64,12 @@ export default function Home({id}) {
           Project Details
         </h2>
         <p style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
+          Description: {project.description}
+        </p>
+        <p style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
+          Owner: {project.teamLeader && project.teamLeader.name} {isAdmin && <span style={{fontWeight: 600, paddingLeft: 5}}> (You)</span>}
+        </p>
+        <p style={{display: "flex", flexDirection: "row", flexWrap: "wrap", fontWeight: "bold"}}>
           Project Stats;
         </p>
         <p>{project.vectors ? project.vectors.length : 0} Vectors</p>
