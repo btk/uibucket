@@ -6,6 +6,7 @@ import Router from 'next/router'
 
 import Project from '../../components/Project';
 import Sidebar from '../../components/Sidebar';
+import Member from '../../components/Member';
 
 
 export default function Home({id}) {
@@ -14,6 +15,7 @@ export default function Home({id}) {
   let [name, setName] = useState("");
   let [email, setEmail] = useState("");
 
+  let [isAdmin, setIsAdmin] = useState(false);
 
   let add = async () => {
     if(name && email){
@@ -27,14 +29,32 @@ export default function Home({id}) {
     }
   }
 
+  let removeMember = async (email) => {
+    let remove = await post(`/api/memberRemove`, {id, email});
+    Router.push(`/members/${id}`);
+    setTimeout(() => {
+      Router.reload();
+    }, 100);
+  }
+
   useEffect(() => {
 
       let getProjectInfo = async () => {
         let projectResponse = await get("/api/project", {id: id});
         setProject(projectResponse);
+
+        let authString = window.localStorage.getItem("auth");
+        if(authString && authString != ""){
+          let auth = JSON.parse(authString);
+
+          if(auth.userObject.email){
+            setIsAdmin(projectResponse.teamLeader.email == auth.userObject.email)
+          }
+        }
       }
 
       getProjectInfo();
+
 
   }, [])
 
@@ -47,9 +67,11 @@ export default function Home({id}) {
       </Head>
 
 
-      <a href="#popup3">
-        <div className={"add"} style={{backgroundColor: "#feeadc"}}>+ Add New Member</div>
-      </a>
+      {isAdmin &&
+        <a href="#popup3">
+          <div className={"add"} style={{backgroundColor: "#feeadc"}}>+ Add New Member</div>
+        </a>
+      }
 
       <div className="popup" id="popup3">
         <div className="popupHolder">
@@ -93,7 +115,7 @@ export default function Home({id}) {
               </p>
             }
             {project.teamMembers && project.teamMembers.map((member, i) => {
-              return <p style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}} key={i}>{member.name} ({member.email})</p>
+              return <Member key={i} member={member} remove={isAdmin ? () => removeMember(member.email) : false}/>
             })}
           </>
         }

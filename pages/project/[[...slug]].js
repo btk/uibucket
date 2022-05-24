@@ -44,8 +44,11 @@ export default function Home({id}) {
           Project Details
         </h2>
         <p style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
-          Project has {project.vectors ? project.vectors.length : 0} Vectors
+          Project Stats;
         </p>
+        <p>{project.vectors ? project.vectors.length : 0} Vectors</p>
+        <p>{project.fonts ? project.fonts.length : 0} Fonts</p>
+        <p>{project.teamMembers ? project.teamMembers.length+1 : 1} Members</p>
 
       </div>
 
