@@ -15,7 +15,7 @@ export default function Vector({ vector, add }) {
   }
 
   return (
-    <div className="vector" style={{ width: 140, height: 160, border: "1px solid #ddd", borderRadius: 10, margin: 5, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
+    <div className={`vector${typeof add == "function" ? " adding" : ""}`} style={{ width: 140, height: 160, border: "1px solid #ddd", borderRadius: 10, margin: 5, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center",
     backgroundColor: isAccepted ? "#dff5e7" : "#fff" }}>
       <img src={vector.url} style={{width: 90, height: 90}}/>
       {typeof add != "function" && <p>{vector.title}</p>}
