@@ -14,7 +14,6 @@ export default function Home({ }) {
     let res = await post("/api/register", {name, email, password})
 
     setResponse(res);
-    console.log(res);
 
     if(res.authenticated){
       // create cookie for user
@@ -35,7 +34,7 @@ export default function Home({ }) {
 
       <main>
 
-      
+
 
         {typeof response.authenticated == "undefined" &&
 
@@ -62,7 +61,7 @@ export default function Home({ }) {
 
           </div>
         }
-       
+
 
 
         {response.authenticated &&

@@ -9,7 +9,6 @@ let serialize = (obj) => {
 
 export default async function get(url = '', params = {}) {
   let serialized = serialize(params);
-  console.log(serialized);
   // Default options are marked with *
   const response = await fetch(url+"?"+serialized, {
     method: 'GET', // *GET, POST, PUT, DELETE, etc.
