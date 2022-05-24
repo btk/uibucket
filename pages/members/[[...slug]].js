@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import get from '../../js/get'
+import post from '../../js/post'
 import Router from 'next/router'
 
 import Project from '../../components/Project';
@@ -10,7 +11,19 @@ import Sidebar from '../../components/Sidebar';
 export default function Home({id}) {
 
   let [project, setProject] = useState({});
+  let [name, setName] = useState("");
+  let [email, setEmail] = useState("");
 
+
+  let add = async () => {
+    if(name && email){
+      let adding = await post(`/api/memberAdd`, {id, name, email});
+      Router.push(`/members/${id}`);
+      Router.reload();
+    }else {
+      alert("Name or email address can't be empty!");
+    }
+  }
 
   useEffect(() => {
 
@@ -40,9 +53,10 @@ export default function Home({id}) {
         <div className="popupHolder">
           <h3>Add Member</h3>
           <div className="content">
-            <input className="Pinput" type="text" placeholder="Member e-mail address" name="fontTerm" required></input>
+            <input className="Pinput" type="text" placeholder="Member Name" onChange={(e) => setName(e.target.value)} required></input>
+            <input className="Pinput" type="text" placeholder="Member e-mail address" onChange={(e) => setEmail(e.target.value)} required></input>
 
-            <button type="submit" className="btn">Add Member</button>
+            <button type="submit" className="btn" onClick={() => add()}>Add Member</button>
             <a className="close" href="#">&times;</a>
           </div>
         </div>
