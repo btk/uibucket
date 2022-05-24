@@ -6,6 +6,7 @@ import Router from 'next/router'
 import Link from 'next/link'
 
 import Project from '../components/Project';
+import User from '../components/User';
 
 
 export default function Home({ }) {
@@ -77,11 +78,8 @@ export default function Home({ }) {
           </div>
         </div>
       </div>
-      
 
-      <div onClick={() => logMeOut()} style={{cursor: "pointer", position: "fixed", top: 20, left: 20, background: "#000", color: "#fff", padding: 10, borderRadius: 5}}>
-        Log out
-      </div>
+      <User />
 
       <main>
 

@@ -53,6 +53,25 @@ a {
   text-decoration: none;
 }
 
+
+.user {
+  width: 300px;
+  border-radius: 10px;
+  background: #fafafa;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.user img {
+  margin-right: 15px;
+  margin-left: 5px;
+}
+
+
 .title a {
   color: #0070f3;
   text-decoration: none;

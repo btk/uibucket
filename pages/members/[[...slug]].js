@@ -66,7 +66,6 @@ export default function Home({id}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-
       {isAdmin &&
         <a href="#popup3">
           <div className={"add"} style={{backgroundColor: "#feeadc"}}>+ Add New Member</div>
