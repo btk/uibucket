@@ -53,7 +53,7 @@ export default function Home({id}) {
   let filterSearch = (searchableArray) => {
     if(term){
       return searchableArray.filter(arr => {
-        return arr.title.toLowerCase().includes(term.toLowerCase());
+        return arr.family.toLowerCase().includes(term.toLowerCase()) || arr.category.toLowerCase().replace("-", " ").includes(term.toLowerCase());
       })
     }else{
       return searchableArray;
