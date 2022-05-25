@@ -6,29 +6,28 @@ import Router from 'next/router'
 
 import Project from '../../components/Project';
 import Sidebar from '../../components/Sidebar';
-import Vector from '../../components/Vector';
+import Font from '../../components/Font';
 
-export default function Home({id, assetId}) {
+export default function Home({id, assetFamily}) {
 
   let [project, setProject] = useState({});
 
-  let asset = project.vectors && project.vectors.filter(icon => icon.id == assetId)[0];
+  let asset = project.fonts && project.fonts.filter(icon => icon.family == assetFamily)[0];
   let isAccepted = false;
 
-  if(project.vectors){
+  if(project.fonts){
     isAccepted = typeof asset.accepted != "undefined" && asset.accepted;
   }
 
   let removeConfirm = async () => {
-    if (confirm(`Do you want to remove ${asset.title}?`) == true) {
-      let adding = await post(`/api/vectorRemove`, {id, assetId});
-      Router.push(`/vectors/${id}`);
+    if (confirm(`Do you want to remove ${asset.family}?`) == true) {
+      let adding = await post(`/api/fontRemove`, {id, assetFamily});
+      Router.push(`/fonts/${id}`);
     }
   }
 
-
   let makeUsable = async (usableStatus) => {
-    let adding = await post(`/api/vectorUsable`, {id, assetId, usableStatus});
+    let adding = await post(`/api/fontUsable`, {id, assetFamily, usableStatus});
     Router.reload();
   }
 
@@ -46,7 +45,7 @@ export default function Home({id, assetId}) {
   return (
     <div className="container_Project">
       <Head>
-        <title>Vector: {asset && asset.title} - UIBucket</title>
+        <title>Font: {asset && asset.family} - UIBucket</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -65,11 +64,11 @@ export default function Home({id, assetId}) {
           {asset &&
             <>
               <h2 style={{fontSize: 20}}>
-                Vector: {asset.title} ({asset.id})
+                Font: {asset.family}
               </h2>
 
               <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", backgroundColor: "#eee", borderRadius: 10, width: 600}}>
-                <Vector vector={asset} size={"big"}/>
+                <Font font={asset}/>
               </div>
 
               <h2 style={{fontSize: 20}}>
@@ -105,10 +104,10 @@ export default function Home({id, assetId}) {
 export async function getServerSideProps(context) {
   const { slug } = context.params
   let id = slug[0];
-  let assetId = slug[1];
+  let assetFamily = slug[1].replace(/-/g, " ");
   return {
     props: {
-      id, assetId
+      id, assetFamily
     },
   }
 }

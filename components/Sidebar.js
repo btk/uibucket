@@ -20,7 +20,7 @@ export default function Sidebar({ projectId }) {
     <>
     <User/>
       <div style={{position: "fixed", top: 20, left: 20}}>
-        <div onClick={() => getBackUrl()} style={{cursor: "pointer"}}>
+        <div onClick={() => getBackUrl()} style={{cursor: "pointer" }}>
           <a>
             <div style={{padding: 25}}>
               <img src={"/assets/back.png"}/>
