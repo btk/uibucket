@@ -108,7 +108,7 @@ export default function Home({id}) {
 
         <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
           {project.vectors && filterSearch(project.vectors).map((vector, i) => {
-            return <Vector key={i} vector={vector}/>
+            return <Vector key={i} vector={vector} projectId={id}/>
           })}
         </div>
 

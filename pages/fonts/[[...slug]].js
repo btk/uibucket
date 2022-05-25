@@ -108,7 +108,7 @@ export default function Home({id}) {
 
         <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
           {project.fonts && filterSearch(project.fonts).map((font, i) => {
-            return <Font key={i} font={font}/>
+            return <Font key={i} font={font} projectId={id}/>
           })}
         </div>
 
