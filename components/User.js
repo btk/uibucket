@@ -28,7 +28,7 @@ export default function User() {
 
   return (
     <div className="user">
-      <div><img src="https://www.svgrepo.com/show/157054/avatar.svg" style={{width: 40, height: 40, borderRadius: 20}}/></div>
+      <div><img src={`https://www.svgrepo.com/show/${userObject.name == "Burak" ? 9650 : 157054}/avatar.svg`} style={{width: 40, height: 40, borderRadius: 20}}/></div>
       <div>
         <div style={{fontWeight: "bold"}}>{userObject.name}</div>
         <div>{userObject.email}</div>
