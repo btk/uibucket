@@ -47,6 +47,13 @@ export default function Home({id}) {
     }
 
     getProjectInfo();
+    let interval = setInterval(() => {
+      getProjectInfo();
+    }, 2000);
+
+    return () => {
+      clearInterval(interval);
+    }
 
   }, [])
 

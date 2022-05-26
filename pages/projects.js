@@ -37,6 +37,13 @@ export default function Home({ }) {
     }
 
     authCheck();
+    let interval = setInterval(() => {
+      authCheck();
+    }, 2000);
+
+    return () => {
+      clearInterval(interval);
+    }
   }, [])
 
   let logMeOut = () => {

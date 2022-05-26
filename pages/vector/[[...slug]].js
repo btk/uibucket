@@ -40,6 +40,14 @@ export default function Home({id, assetId}) {
       }
 
       getProjectInfo();
+      let interval = setInterval(() => {
+        getProjectInfo();
+      }, 2000);
+
+      return () => {
+        clearInterval(interval);
+      }
+
 
   }, [])
 

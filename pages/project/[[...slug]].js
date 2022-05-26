@@ -31,6 +31,13 @@ export default function Home({id}) {
       }
 
       getProjectInfo();
+      let interval = setInterval(() => {
+        getProjectInfo();
+      }, 2000);
+
+      return () => {
+        clearInterval(interval);
+      }
 
   }, [])
 
@@ -72,9 +79,11 @@ export default function Home({id}) {
         <p style={{display: "flex", flexDirection: "row", flexWrap: "wrap", fontWeight: "bold"}}>
           Project Stats;
         </p>
-        <p>{project.vectors ? project.vectors.length : 0} Vectors</p>
-        <p>{project.fonts ? project.fonts.length : 0} Fonts</p>
-        <p>{project.teamMembers ? project.teamMembers.length+1 : 1} Members</p>
+        <big>
+          <p><div style={{width: 20, height: 20, borderRadius: 10, backgroundColor: "#dcf2fe", float: "left", position: "relative", top: 5, marginRight: 5}}></div> <strong>{project.vectors ? project.vectors.length : 0}</strong> Vectors</p>
+          <p><div style={{width: 20, height: 20, borderRadius: 10, backgroundColor: "#fae1ff", float: "left", position: "relative", top: 5, marginRight: 5}}></div> <strong>{project.fonts ? project.fonts.length : 0}</strong> Fonts</p>
+          <p><div style={{width: 20, height: 20, borderRadius: 10, backgroundColor: "#e6fedc", float: "left", position: "relative", top: 5, marginRight: 5}}></div> <strong>{project.teamMembers ? project.teamMembers.length+1 : 1}</strong> Members</p>
+        </big>
         <p></p>
         {isAdmin &&
           <div onClick={() => removeConfirm()} style={{color: "red", padding: 5, marginTop: 5, borderRadius: 5, cursor: "pointer"}}>Remove Project</div>
