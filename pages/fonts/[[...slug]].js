@@ -35,7 +35,7 @@ export default function Home({id}) {
 
   let fetchFonts = async () => {
     if(addTerm.length >= 2){
-      let fonts = await get(`/api/searchFonts`, { search: addTerm, limit: 5, key: `AIzaSyA1whkxzFwdyzUUtFjkcxgdtmU_9TmxbGA`})
+      let fonts = await get(`/api/searchFonts`, { search: addTerm, limit: 12, key: `AIzaSyA1whkxzFwdyzUUtFjkcxgdtmU_9TmxbGA`})
       setAddResults(fonts);
     }
   }
@@ -92,7 +92,6 @@ export default function Home({id}) {
                 return <Font key={i+font.family} font={font} add={() => addFont(font)}/>
               })}
             </div>
-            <button type="submit" className="btn" onClick={() => add()}>Done!</button>
             <a className="close" href="#">&times;</a>
           </div>
         </div>

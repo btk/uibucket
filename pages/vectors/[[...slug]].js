@@ -21,12 +21,6 @@ export default function Home({id}) {
     let adding = await post(`/api/vectorAdd`, {id, vector});
   }
 
-  let add = async () => {
-    Router.push(`/vectors/${id}`);
-    setTimeout(() => {
-      Router.reload();
-    }, 100);
-  }
 
   useEffect(() => {
     fetchVectors();
@@ -34,7 +28,7 @@ export default function Home({id}) {
 
   let fetchVectors = async () => {
     if(addTerm.length >= 2){
-      let icons = await get(`/api/searchVectors`, { search: addTerm, limit: 8})
+      let icons = await get(`/api/searchVectors`, { search: addTerm, limit: 16})
       setAddResults(icons);
     }
   }
@@ -92,7 +86,6 @@ export default function Home({id}) {
                 return <Vector key={i} vector={icon} add={() => addVector(icon)}/>
               })}
             </div>
-            <button type="submit" className="btn" onClick={() => add()}>Done!</button>
             <a className="close" href="#">&times;</a>
           </div>
         </div>
