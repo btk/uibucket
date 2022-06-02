@@ -6,3 +6,4 @@
 - Sections in terms of contents
 - Figure numbers
 - Network connections in the deployment
+- Add info about how we manage the collaboration
