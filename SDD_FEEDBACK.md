@@ -1,3 +1,8 @@
 - consider adding stakeholders
 - consider adding assembly diagrams in context view
 - Also include old use-cases in the context view
+- explain non-standard view elements (maybe in deployment diagram) (arrow means information flow, or dependancy)
+- Design Views
+- Sections in terms of contents
+- Figure numbers
+- Network connections in the deployment
