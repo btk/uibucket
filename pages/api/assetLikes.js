@@ -2,7 +2,7 @@ import clientPromise from "../../lib/mongodb";
 import { ObjectID } from 'mongodb'
 
 export default async (req, res) => {
-  let { id, assetId, userEmail, assetType } = req.body
+  let { id, assetId, userEmail } = req.body
 
  const client = await clientPromise
  const db = client.db("UIBucket")
@@ -10,7 +10,7 @@ export default async (req, res) => {
    .collection("Project")
    .findOneAndUpdate({"_id" : ObjectID(id)}, {
      $push: {
-       [`${assetType}.$[outer].likes`]: userEmail
+       [`vectors.$[outer].likes`]: userEmail
      }
    },
   {
@@ -19,3 +19,5 @@ export default async (req, res) => {
 
   res.json(true);
 };
+
+// ${assetType}
