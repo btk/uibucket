@@ -1,0 +1,3 @@
+- consider adding stakeholders
+- consider adding assembly diagrams in context view
+- Also include old use-cases in the context view
