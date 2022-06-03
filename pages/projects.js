@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useState, useEffect } from 'react'
 import get from '../js/get'
 import post from '../js/post'
+
 import Router from 'next/router'
 import Link from 'next/link'
 
