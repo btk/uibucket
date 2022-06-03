@@ -45,7 +45,7 @@ export default function Home({}) {
           Log In
         </div>
 
-        <div onClick={() => Router.push("/signup")} style={{cursor: "pointer", background: "#000", color: "#fff", padding: 10, margin: 10, borderRadius: 5}}>
+        <div onClick={() => Router.push("/login")} style={{cursor: "pointer", background: "#000", color: "#fff", padding: 10, margin: 10, borderRadius: 5}}>
           Sign Up
         </div>
       </main>
