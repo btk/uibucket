@@ -19,6 +19,7 @@ export default function Home({id, assetId}) {
   let disliked = false;
   let numberOfLikes = 0;
   let numberOfDislikes = 0;
+  let assetType = "vectors";
 
   if(project.vectors){
     isAccepted = typeof asset.accepted != "undefined" && asset.accepted;
@@ -51,30 +52,30 @@ export default function Home({id, assetId}) {
 
   let addLike = async () => {
     if(!liked){
-      let liking = await post(`/api/assetLikes`, {id,assetId,userEmail});
+      let liking = await post(`/api/assetLikes`, {id,assetId,userEmail,assetType});
       liked = true;
       if(disliked){
-        let disliking = await post(`/api/assetRemoveDislike`, {id,assetId,userEmail});
+        let disliking = await post(`/api/assetRemoveDislike`, {id,assetId,userEmail,assetType});
         disliked = false;
       }
       Router.reload();
     }else{
-      let liking = await post(`/api/assetRemoveLike`, {id,assetId,userEmail});
+      let liking = await post(`/api/assetRemoveLike`, {id,assetId,userEmail,assetType});
       liked = false;
       Router.reload();
     }
   }
   let addDislike = async () => {
     if(!disliked){
-      let disliking = await post(`/api/assetDislikes`, {id,assetId,userEmail});
+      let disliking = await post(`/api/assetDislikes`, {id,assetId,userEmail,assetType});
       disliked = true;
       if(liked){
-        let liking = await post(`/api/assetRemoveLike`, {id,assetId,userEmail});
+        let liking = await post(`/api/assetRemoveLike`, {id,assetId,userEmail,assetType});
         liked = false;
       }
       Router.reload();
     }else{
-      let disliking = await post(`/api/assetRemoveDislike`, {id,assetId,userEmail});
+      let disliking = await post(`/api/assetRemoveDislike`, {id,assetId,userEmail,assetType});
       disliked = false;
       Router.reload();
     }
