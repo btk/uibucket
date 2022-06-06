@@ -7,11 +7,13 @@ import Router from 'next/router'
 import Project from '../../components/Project';
 import Sidebar from '../../components/Sidebar';
 import Vector from '../../components/Vector';
+import CommentBox from '../../components/commentBox';
 
 export default function Home({id, assetId}) {
 
   let [project, setProject] = useState({});
-  let [userEmail, setUserEmail] = useState({});
+  let [userEmail, setUserEmail] = useState("");
+  let [name, setName] = useState("")
 
   let asset = project.vectors && project.vectors.filter(icon => icon.id == assetId)[0];
   let isAccepted = false;
@@ -20,6 +22,7 @@ export default function Home({id, assetId}) {
   let numberOfLikes = 0;
   let numberOfDislikes = 0;
   let assetType = "vectors";
+  let comments = [];
 
   if(project.vectors){
     isAccepted = typeof asset.accepted != "undefined" && asset.accepted;
@@ -34,6 +37,9 @@ export default function Home({id, assetId}) {
         disliked = true;
       }
       numberOfDislikes = asset.dislikes.length;
+    }
+    if(asset.comments != undefined && asset.comments.length > 0){
+      comments = asset.comments;
     }
   }
 
@@ -81,6 +87,18 @@ export default function Home({id, assetId}) {
     }
   }
 
+  let addComment = async (comment) => {
+
+    let commentAdded = {
+      writer: name,
+      commentText: comment
+    };
+
+    let commenting = await post(`/api/addComment`, {id,assetId,assetType,commentAdded});
+
+  }
+
+
   useEffect(() => {
 
 
@@ -88,6 +106,7 @@ export default function Home({id, assetId}) {
       let auth = JSON.parse(authString);
 
       setUserEmail(auth.userObject.email);
+      setName(auth.userObject.name);
 
       let getProjectInfo = async () => {
         let projectResponse = await get("/api/project", {id: id});
@@ -135,14 +154,7 @@ export default function Home({id, assetId}) {
                 <Vector vector={asset} size={"big"}/>
               </div>
 
-              <h2 style={{fontSize: 20}}>
-                Comments (WIP)
-              </h2>
-
-              <div>
-                <p><b>Burak: </b> I think we can use this</p>
-                <p><b>Omar: </b> Maybe something bolder</p>
-              </div>
+              <CommentBox comments={comments} sendComment={addComment}></CommentBox>
 
             </>
           }
