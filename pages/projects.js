@@ -18,6 +18,10 @@ export default function Home({ }) {
   let [projectName, setProjectName] = useState("");
   let [projectDescription, setProjectDescription] = useState("");
 
+  let [newProjectName, setNewProjectName] = useState("");
+
+  let [pid, setPID] = useState("")
+
   useEffect(() => {
     let authCheck = async () => {
       let authString = window.localStorage.getItem("auth");
@@ -63,6 +67,22 @@ export default function Home({ }) {
     }, 100);
   }
 
+  let deleteProject = async () => {
+    let deleting = await post(`/api/projectRemove`, {id: pid,email: userObject.email});
+    Router.push(`/projects`);
+    setTimeout(() => {
+      Router.reload();
+    }, 100);
+  }
+
+  let renameProject = async () => {
+    let renaming = await post(`/api/projectRename`, {id: pid,name: newProjectName});
+    Router.push(`/projects`);
+    setTimeout(() => {
+      Router.reload();
+    }, 100);
+  }
+
   return (
     <div className="container_Project">
       <Head>
@@ -78,14 +98,36 @@ export default function Home({ }) {
         <div className="popupHolder">
           <h3>Create Project</h3>
           <div className="content">
-            <input className="Pinput" type="text" placeholder="Enter Project Name" onChange={(e) => setProjectName(e.target.value)} required></input>
-            <textarea className="Pinput" type="text" placeholder="Enter Project Description" onChange={(e) => setProjectDescription(e.target.value)} required></textarea>
+            <input className="pnInput" type="text" placeholder="Project Name" onChange={(e) => setProjectName(e.target.value)} required></input>
+            <textarea className="pnTextArea" type="text" placeholder="Project Description" onChange={(e) => setProjectDescription(e.target.value)} required></textarea>
 
-            <button type="submit" className="btn" onClick={() => createProject()}>Create</button>
+            <button type="submit" className="btn btn_pn" onClick={() => createProject()}>Create</button>
             <a className="close" href="#">&times;</a>
           </div>
         </div>
       </div>
+
+      <div className="popup" id="deletepopup">
+        <div className="popupHolder">
+          <h3>Are you sure you want to delete this project!?</h3>
+          <div className="content">
+            <button type="submit" className="btn" onClick={()=>{deleteProject()}}>Delete</button>
+            <a className="close" href="#">&times;</a>
+          </div>
+        </div>
+      </div>
+
+      <div className="popup" id="renamepopup">
+        <div className="popupHolder">
+          <h3>Rename Project</h3>
+          <div className="content">
+            <input className="Pinput" type="text" placeholder="new project name" value={newProjectName} onChange={(e) => setNewProjectName(e.target.value) } required></input>
+            <button type="submit" className="btn" onClick={()=>{renameProject()}}>OK</button>
+            <a className="close" href="#">&times;</a>
+          </div>
+        </div>
+      </div>
+      
 
       <User />
 
@@ -106,7 +148,7 @@ export default function Home({ }) {
           }
           {projects.length != 0 && projects.map((project, i) => {
               return (
-                <Project key={i} project={project}/>
+                <Project key={i} project={project} isAdmin={project.teamLeader.email == userObject.email} setPID={setPID}/>
               )
             })
           }
