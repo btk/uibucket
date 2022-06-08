@@ -298,3 +298,159 @@ code {
 .btn_pn{
   height: 5%;
 }
+
+html{
+  scroll-snap-type: mandatory;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+}
+
+.home{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.navbar {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: rgb(255, 246, 246);
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  user-select: none;
+}
+
+.navbar a:hover, .navbar div:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.logindiv{
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+  float: right;
+  padding-right: 10px;
+  padding-left: 10px;
+  user-select: none;
+  cursor: pointer;  
+  }
+
+  .sdefault {
+    padding: 1rem;
+    height: 100vh;
+    scroll-snap-align: start;
+    text-align: center;
+    position: relative;
+    margin: 0px;
+    vertical-align: middle;
+  }
+
+  .leftlead{
+    width: 50%;
+    height: inherit;
+    float: left;
+    vertical-align: middle;
+    position: relative;
+}
+
+.rightlead{
+    width: 50%;
+    height: 40%;
+    float: left;
+    position: relative;
+    top: 30%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.imglead{
+      max-width: 80%;
+      height: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+}
+
+
+  .section1{
+    background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+    margin: 0px;
+  }
+
+  .section1{
+    background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+    margin: 0px;
+  }
+  .section2{
+    background: linear-gradient(90deg, #e01c1c 0%, #510000 100%);
+    margin: 0px;
+  }
+
+  .section3{
+     margin: 0px;
+     background: linear-gradient(90deg, #1ce046 0%, #00511b 100%);
+  }
+
+  .section4{
+     margin: 0px;
+     background: linear-gradient(90deg, #1ce0c6 0%, #004e51 100%);
+  }
+
+  .section_title{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    width: 100%;
+    left: 0;
+    font-size: 3vw;
+    font-family: 'Courier New', monospace;
+  }
+
+  .section_info{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    width: 80%;
+    font-size: 1.5vw;
+    align-content: center;
+    margin: auto;
+  }
+
+    .start{
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .start a{
+      background: #000851;
+      font-size: 3rem;
+      color: #ddd;
+      padding: 20px;
+      border-radius: 10px;
+      user-select: none;
+      cursor: pointer;
+  
+    }
+

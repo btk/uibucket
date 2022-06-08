@@ -26,8 +26,49 @@ export default function Home({}) {
   }, [])
 
   return (
-    <div className="container">
-      <Head>
+    <>
+    <div className="navbar">
+        <a href="/">Home</a>
+        <a href="#aboutus">About Us</a>
+        <a href="#contact">Contact</a>
+        <div className="logindiv" onClick={()=> Router.push("/login")}>Start Now !</div>
+    </div>
+    
+    <div className="home">
+
+    <section className="sdefault section1">
+      <div className="leftlead">
+          <img className="imglead" src='/assets/community.png'/>
+      </div>
+      <div className="rightlead">
+          <h1 className='section_title'>Asset Sharing Platform</h1>
+          <p className='section_info'>Our application offers a platform to share all vectors/fonts with your colleages in any software development project</p>
+      </div>
+    </section>
+    <section className="sdefault section2">
+      <div className="leftlead">
+          <img className="imglead" src="../assets/opinion.png"/>
+      </div>
+      <div className="rightlead">
+          <h1 className='section_title'>Your Opinion matters</h1>
+          <p className='section_info'>In this platform, you will be able to vote for the best choices and add your comment asset to help find the best set of assets for the project.</p>
+      </div>
+    </section>
+    <section className="sdefault section3">
+      <div className="leftlead">
+          <img className="imglead" src="../assets/computer.png"/>
+      </div>
+      <div className="rightlead">
+          <h1 className='section_title'>Easy to use App</h1>
+          <p className='section_info'>The platform is so easy to use with non-complex user interface and amazing nice features that will just make your programming life easier!</p>
+      </div>
+    </section>
+    <section className="sdefault section4">
+        <div className="start">
+            <a onClick={()=> Router.push("/login")}>Start Now !</a>
+        </div>
+    </section>
+      {/* <Head>
         <title>Welcome - UIBucket</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -48,7 +89,9 @@ export default function Home({}) {
         <div onClick={() => Router.push("/login")} style={{cursor: "pointer", background: "#000", color: "#fff", padding: 10, margin: 10, borderRadius: 5}}>
           Sign Up
         </div>
-      </main>
+      </main> */}
     </div>
+
+    </>
   )
 }
