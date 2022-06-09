@@ -39,11 +39,17 @@ export default function Font({ font, add, projectId }) {
 
   if(add){
     return inners;
-  }else{
+  }else if(projectId){
     return (
       <Link href={`/font/${projectId}/${font.family.replace(/ /g, "-")}`}>
         {inners}
       </Link>
+    )
+  }else{
+    return (
+      <>
+        {inners}
+      </>
     )
   }
 

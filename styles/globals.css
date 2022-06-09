@@ -379,14 +379,10 @@ html{
 
 
   .section1{
-    background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
+    background: linear-gradient(90deg, #1CB5E0 0%, #ffffff 100%);
     margin: 0px;
   }
-
-  .section1{
-    background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
-    margin: 0px;
-  }
+  
   .section2{
     background: linear-gradient(90deg, #e01c1c 0%, #510000 100%);
     margin: 0px;

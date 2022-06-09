@@ -35,9 +35,9 @@ export default function Home({}) {
           <img className="imglead" src='/assets/community.png'/>
       </div>
       <div className="rightlead">
-          <img src={"/logo_white.svg"} style={{width: 200}}/>
-          <h1 className='section_title'>Asset Sharing Platform</h1>
-          <p className='section_info'>Our application offers a platform to share all vectors/fonts with your colleages in any software development project</p>
+          <img src={"/logo.svg"} style={{width: 200}}/>
+          <h1 className='section_title' style={{color: "#111"}}>Asset Sharing Platform</h1>
+          <p className='section_info' style={{color: "#111"}}>Our application offers a platform to share all vectors/fonts with your colleages in any software development project</p>
 
           <div className="start">
               <a onClick={()=> Router.push("/login")}>Start Now!</a>
@@ -71,7 +71,7 @@ export default function Home({}) {
       <title>Welcome - UIBucket</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    
+
       {/*
 
       <main>

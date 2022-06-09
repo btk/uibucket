@@ -160,11 +160,11 @@ export default function Home({id, assetFamily}) {
           <div style={{borderLeft: "1px solid #ddd", padding: 20}}>
           <big>Rating:</big><br/><br/>
           {/* Like (10) Dislike (5) */}
-            <div style={{border:"1px solid black", width:"4vw", height:"6vh",display:"inline-block", cursor:"pointer",verticalAlign:"middle", padding:"2px",borderRadius:5,backgroundColor: liked ? "#69E085" : "000000",marginRight:"1vw"}} onClick={()=>{addLike()}}><img src="https://cdn.svgapi.com/vector/5414/like.svg" style={{width:"100%", height:"100%", verticalAlign:"middle",display:"inline-block"}}/></div>  
-            
+            <div style={{border:"1px solid black", width:"4vw", height:"6vh",display:"inline-block", cursor:"pointer",verticalAlign:"middle", padding:"2px",borderRadius:5,backgroundColor: liked ? "#69E085" : "000000",marginRight:"1vw"}} onClick={()=>{addLike()}}><img src="https://cdn.svgapi.com/vector/5414/like.svg" style={{width:"100%", height:"100%", verticalAlign:"middle",display:"inline-block"}}/></div>
+
             <div style={{width:"fit-content", height:"6vh",display:"inline-block", cursor:"pointer",verticalAlign:"middle", padding:"2px",borderRadius:5,marginRight:"1vw"}} onClick={()=>{addLike()}}>{numberOfLikes}</div>
 
-            <div style={{border:"1px solid black", width:"4vw", height:"6vh",display:"inline-block", cursor:"pointer",verticalAlign:"middle", padding:"2px",borderRadius:5,backgroundColor: disliked ? "#F02427" : "000000",marginRight:"1vw"}} onClick={()=>{addDislike()}}><img src="https://cdn.svgapi.com/vector/47715/dislike.svg" style={{width:"100%", height:"100%", verticalAlign:"middle",display:"inline-block"}}/></div>  
+            <div style={{border:"1px solid black", width:"4vw", height:"6vh",display:"inline-block", cursor:"pointer",verticalAlign:"middle", padding:"2px",borderRadius:5,backgroundColor: disliked ? "#F02427" : "000000",marginRight:"1vw"}} onClick={()=>{addDislike()}}><img src="https://cdn.svgapi.com/vector/47715/dislike.svg" style={{width:"100%", height:"100%", verticalAlign:"middle",display:"inline-block"}}/></div>
 
             <div style={{width:"fit-content", height:"6vh",display:"inline-block", cursor:"pointer",verticalAlign:"middle", padding:"2px",borderRadius:5,marginRight:"1vw"}} onClick={()=>{addLike()}}>{numberOfDislikes}</div>
 

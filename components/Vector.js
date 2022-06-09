@@ -26,11 +26,17 @@ export default function Vector({ vector, add, projectId, size }) {
 
   if(add){
     return inners;
-  }else{
+  }else if(projectId){
     return (
       <Link href={`/vector/${projectId}/${vector.id}`}>
         {inners}
       </Link>
+    )
+  }else{
+    return (
+      <>
+        {inners}
+      </>
     )
   }
 
