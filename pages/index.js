@@ -27,13 +27,7 @@ export default function Home({}) {
 
   return (
     <>
-    <div className="navbar">
-        <a href="/">Home</a>
-        <a href="#aboutus">About Us</a>
-        <a href="#contact">Contact</a>
-        <div className="logindiv" onClick={()=> Router.push("/login")}>Start Now !</div>
-    </div>
-    
+
     <div className="home">
 
     <section className="sdefault section1">
@@ -41,8 +35,13 @@ export default function Home({}) {
           <img className="imglead" src='/assets/community.png'/>
       </div>
       <div className="rightlead">
+          <img src={"/logo_white.svg"} style={{width: 200}}/>
           <h1 className='section_title'>Asset Sharing Platform</h1>
           <p className='section_info'>Our application offers a platform to share all vectors/fonts with your colleages in any software development project</p>
+
+          <div className="start">
+              <a onClick={()=> Router.push("/login")}>Start Now!</a>
+          </div>
       </div>
     </section>
     <section className="sdefault section2">
@@ -65,13 +64,15 @@ export default function Home({}) {
     </section>
     <section className="sdefault section4">
         <div className="start">
-            <a onClick={()=> Router.push("/login")}>Start Now !</a>
+            <a onClick={()=> Router.push("/login")}>Start Now!</a>
         </div>
     </section>
-      {/* <Head>
-        <title>Welcome - UIBucket</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Head>
+      <title>Welcome - UIBucket</title>
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+    
+      {/*
 
       <main>
         <h1 className="title">

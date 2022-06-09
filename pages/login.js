@@ -66,7 +66,7 @@ export default function Home({ }) {
       }, 3000)
     }
   }
-  
+
 
   return (
     <div className="container">
@@ -77,7 +77,7 @@ export default function Home({ }) {
 
       <main>
 
-        
+
 
           {/* <p className="description">
             Use the form to login to UIBucket
@@ -109,15 +109,15 @@ export default function Home({ }) {
             <div className={styles.formSection}>
               <div className={styles.forms}>
                 <div ref={sec1} className={`${styles.formWrapper} ${styles.isActive}`}>
-                  
+
                   <button type="button" ref={switcher1} className={`${styles.switcher} ${styles.switcherLogin}`}>
                     Login
                     <span className={styles.underline}></span>
                   </button>
                   <form className={`${styles.form} ${styles.formLogin}`}>
-                    
+
                     <fieldset>
-                      <h1 className={styles.title}>UI BUCKET</h1>
+                      <h1 className={styles.title}><img src={"/logo_white.svg"} style={{width: 100}}/></h1>
                       <legend>Please, enter your email and password for login.</legend>
                       <div className={styles.inputBlock}>
                         <label htmlFor="login-email">E-mail</label>
@@ -137,9 +137,9 @@ export default function Home({ }) {
                     <span className={styles.underline}></span>
                   </button>
                   <form className={` ${styles.form} ${styles.formSignup} `}>
-                    
+
                     <fieldset>
-                      <h1 className={styles.title}>UI BUCKET</h1>
+                      <h1 className={styles.title}><img src={"/logo_white.svg"} style={{width: 100}}/></h1>
                       <legend>Please, enter your email, password and password confirmation for sign up.</legend>
                       <div className={styles.inputBlock}>
                         <label htmlFor="signup-name">Name</label>
@@ -162,7 +162,7 @@ export default function Home({ }) {
 
           }
 
-       
+
 
         {response.authenticated && isLogin &&
           <span>

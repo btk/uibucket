@@ -350,7 +350,7 @@ html{
   padding-right: 10px;
   padding-left: 10px;
   user-select: none;
-  cursor: pointer;  
+  cursor: pointer;
   }
 
   .sdefault {
@@ -442,15 +442,14 @@ html{
       justify-content: center;
       align-items: center;
     }
-  
+
     .start a{
-      background: #000851;
-      font-size: 3rem;
-      color: #ddd;
+      background: #fff;
+      font-size: 2rem;
+      color: #333;
       padding: 20px;
       border-radius: 10px;
       user-select: none;
       cursor: pointer;
-  
-    }
 
+    }

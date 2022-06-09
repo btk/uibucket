@@ -127,14 +127,15 @@ export default function Home({ }) {
           </div>
         </div>
       </div>
-      
+
 
       <User />
 
       <main>
 
 
-        <h1 className="title">
+        <img src={"/logo.svg"} style={{width: 150, padding: 20}}/>
+        <h1 className="title" style={{fontSize: 40}}>
           My Projects
         </h1>
 

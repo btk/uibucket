@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1458" height="390" viewBox="0 0 1458 390">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="1458" height="390" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Repeat_Grid_1" data-name="Repeat Grid 1" clip-path="url(#clip-path)">
+    <g id="Group_25" data-name="Group 25" transform="translate(-4654 -4408)">
+      <path id="XMLID_230_" d="M330,45A45.051,45.051,0,0,0,285,0H45A45,45,0,0,0,30,87.42V315a15,15,0,0,0,15,15H285a15,15,0,0,0,15-15V87.42A45.072,45.072,0,0,0,330,45ZM135,180a45.051,45.051,0,0,0,45-45V90h90v45a105,105,0,0,1-210,0V90H90v45A45.051,45.051,0,0,0,135,180ZM270,300H60V219.749a134.825,134.825,0,0,0,210,0ZM285.005,60H165a15,15,0,0,0-15,15v60a15,15,0,0,1-30,0V75a15,15,0,0,0-15-15H44.995A15,15,0,0,1,45,30H285a15,15,0,0,1,.005,30Z" transform="translate(4654 4408)"/>
+      <text id="uibucket" transform="translate(4984 4720)" font-size="300" font-family="Futura-Medium, Futura" font-weight="500"><tspan x="0" y="0">uibucket</tspan></text>
+    </g>
+  </g>
+</svg>
