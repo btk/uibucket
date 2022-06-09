@@ -283,22 +283,6 @@ code {
 }
 
 
-.pnInput{
-  height: 5%;
-  display: inline-block;
-  margin-bottom: 3%;
-}
-
-.pnTextArea{
-  height: 5%;
-  display: block;
-  margin-bottom: 3%;
-}
-
-.btn_pn{
-  height: 5%;
-}
-
 html{
   scroll-snap-type: mandatory;
   scroll-snap-points-y: repeat(100vh);
@@ -452,4 +436,126 @@ html{
       user-select: none;
       cursor: pointer;
 
+    }
+
+    .card{
+        padding: 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        color: inherit;
+        text-decoration: none;
+        border: 1px solid #535151;
+        border-radius: 10px;
+        transition: color 0.15s ease, border-color 0.15s ease;
+        align-items: center;
+        backdrop-filter: blur(4px);
+        position: absolute;
+        }
+
+    .card:hover,
+    .card:focus,
+    .card:active {
+      color: inherit;
+      border-color: #0070f3;
+    }
+
+    .card p{
+        padding-bottom: 170px;
+        font-weight: bold;
+        font-size: 45px;
+
+    }
+
+    .card div input{
+        display: block;
+        border: 1px solid #000000;
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    .card div{
+        display: block;
+        width: 100%;
+    }
+
+    .loginbtn{
+        display: block;
+        width: 100%;
+        border-radius: 15px;
+        background-color: black;
+        color: white;
+        box-shadow: none;
+        border: solid black 1px;
+    }
+
+    .btnholder{
+        margin-top: 2rem;
+    }
+
+    .container{
+        background-image: url("pexels-dominika-roseclay-1036808.jpg");
+        background-size:     cover;
+        background-repeat:   no-repeat;
+        background-position: center center;
+    }
+
+    /*Project Page*/
+    .container_Project{
+
+    }
+
+    .float{
+    	position:fixed;
+    	width:60px;
+    	height:60px;
+    	bottom:40px;
+    	right:40px;
+    	background-color:rgba(5, 5, 5, 0.986);
+    	color:rgb(12, 12, 12);
+    	border-radius:50px;
+    	text-align:center;
+    	box-shadow: 2px 2px 3px #999;
+    }
+
+    .my-float{
+    	margin-top:22px;
+    }
+
+    @media screen and (max-width: 700px){
+        .box{
+          width: 70%;
+        }
+        .popup{
+          width: 70%;
+        }
+    }
+
+
+
+    .Pinput {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+    }
+
+    .Pinput:focus {
+        background-color: #ddd;
+        outline: none;
+    }
+
+    .btn {
+        background-color: #646363;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom:10px;
+        opacity: 0.8;
+    }
+
+    .btn:hover {
+        opacity: 1;
     }

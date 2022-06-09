@@ -98,8 +98,8 @@ export default function Home({ }) {
         <div className="popupHolder">
           <h3>Create Project</h3>
           <div className="content">
-            <input className="pnInput" type="text" placeholder="Project Name" onChange={(e) => setProjectName(e.target.value)} required></input>
-            <textarea className="pnTextArea" type="text" placeholder="Project Description" onChange={(e) => setProjectDescription(e.target.value)} required></textarea>
+            <input className="Pinput" type="text" placeholder="Project Name" onChange={(e) => setProjectName(e.target.value)} required></input>
+            <textarea className="Pinput" type="text" placeholder="Project Description" onChange={(e) => setProjectDescription(e.target.value)} required></textarea>
 
             <button type="submit" className="btn btn_pn" onClick={() => createProject()}>Create</button>
             <a className="close" href="#">&times;</a>
