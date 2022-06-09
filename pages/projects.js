@@ -145,7 +145,7 @@ export default function Home({ }) {
 
         <p className="description" style={{display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
           {projects.length == 0 &&
-            <div style={{display: "flex", width: 250, height: 160, justifyContent: "center", alignItems: "center"}}><span>Projects loading...</span></div>
+            <div style={{display: "flex", width: 250, height: 160, justifyContent: "center", alignItems: "center"}}><img src="/spin.svg" style={{width: 50, height: 50}}/></div>
           }
           {projects.length != 0 && projects.map((project, i) => {
               return (
